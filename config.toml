@@ -2,5 +2,4 @@
 base="dark"
 primaryColor="#01b8aa"
 font="serif"
-[browser]
-gatherUsageStats = false
+browser.gatherUsageStats = False

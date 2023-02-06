@@ -4,8 +4,8 @@ from streamlit_option_menu import option_menu
 import plotly.express as px
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-from IPython.display import Markdown, display
-import seaborn as sns
+# from IPython.display import Markdown, display
+# import seaborn as sns
 
 st.set_page_config(page_title="Library", page_icon=":book:",
                    layout="wide", initial_sidebar_state="expanded")
@@ -294,7 +294,7 @@ df_student_pivot = df_student_grouped.pivot_table(index='Department', columns=[
                                                   'Graduation_Type', 'Stream_Type', 'Gender'], values='Membership', aggfunc='sum', fill_value=0)
 
 # Plot pivot table as a heatmap
-sns.heatmap(df_student_pivot, annot=True, cmap='Blues')
+# sns.heatmap(df_student_pivot, annot=True, cmap='Blues')
 plt.title("Membership by Department, Graduation_Type, Stream_Type, and Gender")
 
 # Display pivot table in Streamlit
@@ -331,48 +331,3 @@ pivot_table = pivot_table.rename(columns={'Department': 'Department',
 
 # Display the pivot table
 st.dataframe(pivot_table)
-
-
-# # Chart 4
-
-
-# st.markdown("<h4 style='text-align: center; ;'>Membership by convocation.</h4>", unsafe_allow_html=True)
-
-# left_column, right_column = st.columns(2)
-# left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
-# right_column.plotly_chart(fig2, use_container_width=True)
-
-#     # KPI's for HR Analytics
-#     # Total Staff Countdf_hr
-# staff_count = df_hr["Staff Id"].count()
-
-# # Total Active Staff
-# # Filter only the rows with staff IDs
-# staff_df = Library_Fact[Library_Fact[' ID'].str.startswith("Staff")]
-#     # Count the unique number of staff IDs
-# unique_staff_count = staff_df[' ID'].nunique()
-
-# # Ratio
-# ratio1 = staff_count/unique_staff_count
-# rounded_number = round(ratio1)
-# rounded_ratio = str(int(1)) + "/" + str(int(rounded_number))
-
-# left_column, middle_column, right_column = st.columns(3)
-
-# with left_column:
-#         st.markdown(
-#             "<h4 style='text-align: center; color: black;'>Staff Count</h4>", unsafe_allow_html=True)
-#         st.markdown("<h4 style='text-align: center; color: #01b8aa;'>" +
-#                     str(round(staff_count))+"</h4>", unsafe_allow_html=True)
-
-# with middle_column:
-#         st.markdown(
-#             "<h4 style='text-align: center; color: black;'>Active Staff</h4>", unsafe_allow_html=True)
-#         st.markdown("<h4 style='text-align: center; color: #01b8aa;'>" +
-#                     str(round(staff_count))+"</h4>", unsafe_allow_html=True)
-
-# with right_column:
-#         st.markdown(
-#             "<h4 style='text-align: center; color: black;'>Ratio</h4>", unsafe_allow_html=True)
-#         st.markdown("<h4 style='text-align: center; color: #01b8aa;'>" +
-#                     rounded_ratio+"</h4>", unsafe_allow_html=True)
